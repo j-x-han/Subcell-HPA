@@ -1,4 +1,6 @@
 import boto3
+from botocore import UNSIGNED
+from botocore.config import Config
 import csv
 import cv2
 import numpy as np
@@ -71,7 +73,7 @@ def preprocess_images(metadata, headers, test_antibodies, s3_bucket, cell_crops_
     # Create the cell crops directory if it doesn't exist
     os.makedirs(cell_crops_dir, exist_ok=True)
 
-    s3 = boto3.client("s3")
+    s3 = boto3.client("s3", config=Config(signature_version=UNSIGNED))
     cropped_images = {}
     index = 0
     for antibody in test_antibodies:
@@ -150,7 +152,7 @@ def load_model(model_config_path, s3_bucket, weights_dir):
     # Create the weights directory if it doesn't exist
     os.makedirs(weights_dir, exist_ok=True)
     # Download the model weights from S3
-    s3 = boto3.client("s3")
+    s3 = boto3.client("s3", config=Config(signature_version=UNSIGNED))
     encoder_local_path = f"{weights_dir}/{encoder_path.split('/')[-1]}"
     if os.path.exists(encoder_local_path):
         print("Encoder weights already downloaded, skipping download.")
