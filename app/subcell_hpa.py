@@ -201,7 +201,8 @@ def run_inference(model, cropped_image, cropped_image_name, output_dir):
     cropped_image = np.transpose(cropped_image, (2, 0, 1))
     # Run inference
     print(f"Running inference on {cropped_image_name}...")
-    embedding, probabilities = inference.run_model(model, cropped_image, f"{output_dir}/{cropped_image_name}")
+    output_path = f"{output_dir}/{cropped_image_name.split('_cropped.png')[0]}"
+    embedding, probabilities = inference.run_model(model, cropped_image, output_path)
     
     return embedding, probabilities
 
