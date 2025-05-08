@@ -1,3 +1,4 @@
+# This file is mostly copied from https://github.com/CellProfiling/SubCellPortable/blob/main/inference.py
 import numpy as np
 import torch
 import torch.nn.functional as F

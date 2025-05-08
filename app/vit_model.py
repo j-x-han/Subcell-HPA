@@ -1,3 +1,4 @@
+# This file is copied from https://github.com/CellProfiling/SubCellPortable/blob/main/vit_model.py
 from dataclasses import dataclass
 from typing import Dict, List, Optional, Set, Tuple, Union
 
