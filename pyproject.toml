@@ -29,7 +29,8 @@ dependencies = [
   "requests==2.32.3",
   "boto3==1.35.76",
   "imagecodecs==2024.12.30",
-  "omegaconf==2.3.1",
+  "omegaconf==2.3.0",
+  "opencv-python",
 ]
 
 [project.optional-dependencies]

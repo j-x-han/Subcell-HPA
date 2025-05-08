@@ -102,7 +102,6 @@ def run_model(model, cell_crop, output_path):
     # Add a batch dimension
     cell_crop = cell_crop.unsqueeze(0)
     cell_crop = min_max_standardize(cell_crop)
-    print(cell_crop.shape)
 
     output = model(cell_crop)
 
